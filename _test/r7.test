@@ -1,0 +1,55 @@
+#!/bin/sh
+
+# Connectivity test
+
+# r1
+ping -c 3 -i 0.5 11.1.0.1 | head -n -3 | sed 's/time=.*//'
+
+# r2
+ping -c 3 -i 0.5 11.1.0.2 | head -n -3 | sed 's/time=.*//'
+
+# r5
+ping -c 3 -i 0.5 11.1.1.2 | head -n -3 | sed 's/time=.*//'
+
+# r3
+ping -c 3 -i 0.5 11.1.3.3 | head -n -3 | sed 's/time=.*//'
+
+# r3
+ping -c 3 -i 0.5 11.1.1.3 | head -n -3 | sed 's/time=.*//'
+
+# client1
+ping -c 3 -i 0.5 11.1.4.2 | head -n -3 | sed 's/time=.*//'
+
+# r4
+ping -c 3 -i 0.5 11.1.3.2 | head -n -3 | sed 's/time=.*//'
+
+# r5
+ping -c 3 -i 0.5 11.1.2.2 | head -n -3 | sed 's/time=.*//'
+
+# server
+ping -c 3 -i 0.5 11.1.5.2 | head -n -3 | sed 's/time=.*//'
+
+# r6
+ping -c 3 -i 0.5 110.1.0.1 | head -n -3 | sed 's/time=.*//'
+
+# client2
+ping -c 3 -i 0.5 210.1.0.2 | head -n -3 | sed 's/time=.*//'
+
+# webserver
+ping -c 3 -i 0.5 100.1.1.1 | head -n -3 | sed 's/time=.*//'
+
+# databaseserver
+ping -c 3 -i 0.5 100.1.1.3 | head -n -3 | sed 's/time=.*//'
+
+# smartphone1
+ping -c 3 -i 0.5 100.1.2.5 | head -n -3 | sed 's/time=.*//'
+
+# laptop1
+ping -c 3 -i 0.5 100.1.2.2 | head -n -3 | sed 's/time=.*//'
+
+# ns-com
+ping -c 3 -i 0.5 100.1.3.3 | head -n -3 | sed 's/time=.*//'
+
+touch /hostlab/r7.testdone
+sleep 5
+halt
